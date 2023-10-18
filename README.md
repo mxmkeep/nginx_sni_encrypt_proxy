@@ -1,21 +1,26 @@
 # nginx_sni_encrypt_proxy
 Use local Nginx to encrypt the TLS SNI field, send it to remote Nginx for SNI decryption, and then forward it to achieve the forwarding of specific HTTPS traffic.
 
+This is the first version, and I will update the README to explain what's going on and how to use it.
+
 base on nginx-1.24.0
  
 ```shell
 # on ubuntu 22
 
+#download nginx
 apt update
 apt install -y libpcre3 libpcre3-dev libssl-dev openssl 
 wget https://nginx.org/download/nginx-1.24.0.tar.gz
 tar -zxvf nginx-1.24.0.tar.gz
 
+#add ngx_http_proxy_connect_module
 git clone https://github.com/chobits/ngx_http_proxy_connect_module.git
 mv ngx_http_proxy_connect_module nginx-1.24.0/src/
 cd nginx-1.124.0/
 patch -p1 < src/ngx_http_proxy_connect_module/patch/proxy_connect_rewrite_102101.patch
 
+#
 mv nginx-1.24.0/src/stream/ngx_stream_ssl_preread_module.c nginx-1.24.0/src/stream/ngx_stream_ssl_preread_module.c.bak
 git clone https://github.com/mxmkeep/nginx_sni_encrypt_proxy.git
 cp ngx_stream_ssl_preread_module.c nginx-1.24.0/src/stream/
@@ -31,6 +36,7 @@ vim auto/modules and find out ngx_stream_ssl_preread_module, add rijndael file
         ngx_module_libs=
         ngx_module_link=$STREAM_SSL_PREREAD
 
+#build
 ./configure  \
 --prefix=/usr/local/nginx \
 --error-log-path=/home/nginx/log/error.log \
