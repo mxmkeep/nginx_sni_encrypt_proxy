@@ -19,8 +19,8 @@ patch -p1 < src/ngx_http_proxy_connect_module/patch/proxy_connect_rewrite_102101
 mv nginx-1.24.0/src/stream/ngx_stream_ssl_preread_module.c nginx-1.24.0/src/stream/ngx_stream_ssl_preread_module.c.bak
 git clone https://github.com/mxmkeep/nginx_sni_encrypt_proxy.git
 cp ngx_stream_ssl_preread_module.c nginx-1.24.0/src/stream/
-cp rijndael.c nginx-1.24.0/src/stream/rijndael.c
-cp rijndael.h nginx-1.24.0/src/stream/rijndael.h
+cp rijndael.c nginx-1.24.0/src/stream/
+cp rijndael.h nginx-1.24.0/src/stream/
 
 vim auto/modules and find out ngx_stream_ssl_preread_module, add rijndael file
     if [ $STREAM_SSL_PREREAD = YES ]; then
@@ -53,7 +53,7 @@ mkdir -p /usr/local/nginx/client_body_temp
 mkdir -p /home/nginx/run
 
 cp proxy.pac /usr/local/nginx/html/
-cp nginx /usr/local/nginx/conf/
+cp nginx.conf /usr/local/nginx/conf/
 
 #start nginx
 /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
