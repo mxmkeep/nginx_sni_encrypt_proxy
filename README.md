@@ -55,6 +55,11 @@ mkdir -p /home/nginx/run
 cp proxy.pac /usr/local/nginx/html/
 cp nginx.conf /usr/local/nginx/conf/
 
+#gen your own key and replace key_base64 in nginx.conf
+#a key with random 32 bytes and encode to base64
+python3 genkey.py
+
+
 #start nginx
 /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
 
