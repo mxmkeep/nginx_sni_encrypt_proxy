@@ -61,7 +61,8 @@ cp nginx /usr/local/nginx/conf/
 
 ```
 
-![image](https://github.com/mxmkeep/nginx_sni_encrypt_proxy/assets/20048552/0bd037f7-6c84-40a6-9175-5e3cde70a75d)
+
+![3bc6956b0fd84992f5fe94da411da99](https://github.com/mxmkeep/nginx_sni_encrypt_proxy/assets/20048552/3b25947e-6ebe-4945-8157-cca6a3895197)
 
 
 
