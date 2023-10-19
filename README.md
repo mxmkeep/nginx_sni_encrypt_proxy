@@ -1,10 +1,12 @@
 # nginx_sni_encrypt_proxy
 Use local Nginx to encrypt the TLS SNI field, send it to remote Nginx for SNI decryption, and then forward it to achieve the forwarding of specific HTTPS traffic.
-
 This is the first version, and I will update the README to explain what's going on and how to use it.
 
+![image](https://github.com/mxmkeep/nginx_sni_encrypt_proxy/assets/20048552/d4b5492a-6681-4fdc-ba89-89a99b68919a)
+
+![3bc6956b0fd84992f5fe94da411da99](https://github.com/mxmkeep/nginx_sni_encrypt_proxy/assets/20048552/3b25947e-6ebe-4945-8157-cca6a3895197)
+
 base on nginx-1.24.0
- 
 ```shell
 # on ubuntu 22
 
@@ -73,7 +75,7 @@ python3 genkey.py
 ```
 
 
-![3bc6956b0fd84992f5fe94da411da99](https://github.com/mxmkeep/nginx_sni_encrypt_proxy/assets/20048552/3b25947e-6ebe-4945-8157-cca6a3895197)
+
 
 
 
