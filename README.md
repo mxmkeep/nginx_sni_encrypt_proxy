@@ -80,7 +80,7 @@ python3 genkey.py
 ```
 
 ### local nginx conf
-```
+```shell
 #user  nobody;
 user  root;
 worker_processes  auto;
@@ -201,7 +201,7 @@ stream{
 ```
 
 ### remote nginx conf
-```
+```shell
 #user  nobody;
 user  root;
 worker_processes  auto;
