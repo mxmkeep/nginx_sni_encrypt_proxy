@@ -188,7 +188,7 @@ stream{
     }
 
     #local https service
-    #must 443 port, because browse connect to 443
+    #must 443 port, because the browses requery connect to 443
     #you can with assign different listen IPs to fulfill multi needs
     server{
         listen 443 reuseport;
