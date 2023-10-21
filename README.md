@@ -13,7 +13,7 @@ The rijndael code file is from project fwknop[https://github.com/mrash/fwknop]
 ## Why need ngx_http_proxy_connect_module
 The project can still be run without ngx_http_proxy_connect_module. You need modify local hosts file, but you will encounter two issues.
 1. The hosts file does not support pan-domain configuration, you need to find the sub-domain to configure, it is very troublesome, especially like youbute has random sub-domains, it is impossible to manually change the hosts file! Of course, you can also setup your own DNS service, but the following issue are more critical.
-2. Multiplexing of http 2.0: Because we point all traffic to the same IP for proxying, if the target domain supports http2.0, then subdomains with different source IPs will also use the same tcp socket for transmission, which will cause problems.
+2. Multiplexing of http 2.0: Because we point all traffic to the same IP for proxying, if the target domain supports http2.0, then subdomains with different source IPs will also use the same tcp socket for transmission, which will cause problems. The http connect method will let the browse create new sockets for every session.
 
 ## Install
 Base on nginx-1.24.0
